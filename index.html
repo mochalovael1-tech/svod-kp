@@ -82,7 +82,7 @@ canvas{max-height:300px}canvas.thin{max-height:150px}.covbox{position:relative;w
 <div class="card"><h3>Охват МО договорами по субъектам РФ — часть 2</h3><div class="covbox" id="covboxB"><canvas id="cCovB"></canvas></div></div>
 <div class="card"><h3 id="hRegSum">Топ-12 субъектов по сумме договоров, тыс. ₽</h3><canvas id="cRegSum"></canvas></div>
 <div class="card"><h3>Топ-12 исполнителей по сумме, тыс. ₽</h3><canvas id="cExec"></canvas></div>
-<div class="card full"><h3>Укрупнённые виды работ — сумма, тыс. ₽</h3><canvas id="cCatSum" class="thin"></canvas></div>
+<div class="card full"><h3>Укрупнённые виды работ — сумма, ₽</h3><canvas id="cCatSum" class="thin"></canvas></div>
 </div>
 <div class="card full" style="margin-top:18px"><h3>Реестр (<span id="cnt"></span> строк) — клик по заголовку для сортировки</h3>
 <div class="tbox"><table id="tbl"><thead><tr>
@@ -288,7 +288,7 @@ function render(){const D=flt();kpis(D,fltNoCat());el('cnt').textContent=NF.form
  const csum=CATS.map(c=>Dim.filter(d=>d.cat===c).reduce((a,d)=>a+d.sum,0));
  const keep=CATS.map((c,i)=>ccnt[i]>0||csum[i]>0);
  const lab=CATS.filter((c,i)=>keep[i]),cn=ccnt.filter((c,i)=>keep[i]),cs=csum.filter((c,i)=>keep[i]),col=CCOL.filter((c,i)=>keep[i]);
- mk('cCatSum','bar',lab.map(x=>x.length>26?x.slice(0,26)+'…':x),[{label:'Сумма, тыс. ₽',data:cs.map(v=>Math.round(v/1000)),backgroundColor:col}],{indexAxis:'y',plugins:{legend:{display:false}},scales:{y:{ticks:{font:{size:10}}}}});
+ mk('cCatSum','bar',lab.map(x=>x.length>26?x.slice(0,26)+'…':x),[{label:'Сумма, ₽',data:cs.map(v=>Math.round(v)),backgroundColor:col}],{indexAxis:'y',plugins:{legend:{display:false}},scales:{y:{ticks:{font:{size:10}}}}});
  tbl(D)}
 let sortK='sum',sortDir=-1;
 function tbl(D){const rows=[...D].sort((a,b)=>{let x=a[sortK],y=b[sortK];if(typeof x==='number')return (x-y)*sortDir;return String(x).localeCompare(String(y),'ru')*sortDir});
