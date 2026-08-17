@@ -29,42 +29,76 @@
 
 </script>
 <style>
-:root{--navy:#1f3864;--blue:#2e5496;--lt:#d9e1f2;--green:#2e7d32;--red:#c0392b;--amber:#e67e22;--bg:#f4f6fb;--card:#fff;--txt:#1c2530;--mut:#65748b}
-*{box-sizing:border-box}body{margin:0;font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--txt)}
-header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:22px 28px}
-header h1{margin:0;font-size:21px;font-weight:600}header p{margin:6px 0 0;opacity:.85;font-size:13px}
-.wrap{max-width:1320px;margin:0 auto;padding:20px 28px 60px}
-.filters{display:flex;gap:14px;flex-wrap:wrap;background:var(--card);padding:16px;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);margin:18px 0}
-.filters label{display:flex;flex-direction:column;font-size:11px;color:var(--mut);font-weight:600;gap:5px}
-.filters select,.filters input{padding:8px 10px;border:1px solid #cdd6e4;border-radius:8px;font-size:13px;min-width:180px;background:#fff}
-.filters button{align-self:flex-end;padding:9px 16px;border:none;border-radius:8px;background:var(--navy);color:#fff;font-size:13px;cursor:pointer}
-.refbar{background:#fff3e6;border:1px solid #f3cda0;border-left:6px solid var(--amber);border-radius:10px;padding:16px 20px;margin:0 0 18px;font-size:16px;color:var(--txt);box-shadow:0 2px 8px rgba(230,126,34,.15)}
-.refbar b{color:var(--amber);font-size:20px}.refbar .lbl{color:var(--amber);font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.4px;margin-right:8px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:6px 0 22px}
-.kpi{background:var(--card);border-radius:12px;padding:16px 18px;box-shadow:0 1px 4px rgba(0,0,0,.06);border-left:4px solid var(--blue)}
-.kpi .v{font-size:24px;font-weight:700;color:var(--navy)}.kpi .l{font-size:12px;color:var(--mut);margin-top:4px}
-.kpi.g{border-color:var(--green)}.kpi.r{border-color:var(--red)}.kpi.a{border-color:var(--amber)}.kpi.a .v{color:var(--amber)}.kpi.p{border-color:#7030A0}.kpi.p .v{color:#7030A0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.card h3{margin:0 0 12px;font-size:14px;color:var(--navy)}
+:root{
+ --teal:#046D7E; --teal-d:#00505E; --teal-2:#007080; --teal-l:#58B6C0; --teal-vl:#E7F1F3; --teal-xl:#F2F8F9;
+ --ink:#373545; --muted:#6f7280; --line:#dbe4e6; --bg:#F3F6F7;
+ --grn:#6B9F25; --grn-vl:#EEF5E4;
+ --blue:#3494BA; --blue-vl:#E8F2F7;
+ --red:#B23A2F; --red-l:#FBEDEB; --amb:#9F6715; --amb-l:#FBF2E4;
+ --navy:#00505E; --mut:#6f7280; --txt:#373545; --card:#fff; --green:#6B9F25; --amber:#9F6715; --lt:#E7F1F3;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 -apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.wrap{max-width:1500px;margin:0 auto;padding:18px 18px 60px}
+header{background:linear-gradient(105deg,var(--ink) 0%,var(--teal-d) 38%,var(--teal) 72%,var(--teal-l) 130%);color:#fff;border-radius:14px;padding:20px 24px;margin:0 0 16px}
+header h1{margin:0 0 4px;font-size:22px;font-weight:700;letter-spacing:-.2px}
+header p{margin:0;opacity:.92;font-size:13px}
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;align-items:end;
+ background:var(--teal-xl);border:1px solid var(--teal-l);border-radius:12px;padding:16px 18px;margin:16px 0}
+.filters label{display:flex;flex-direction:column;font-size:11.5px;color:var(--teal-2);font-weight:700;text-transform:uppercase;letter-spacing:.5px;gap:6px}
+.filters select,.filters input{width:100%;padding:10px 12px;border:2px solid var(--teal);border-radius:10px;background:#fff;
+ font-size:14px;font-weight:600;color:var(--teal-d);cursor:pointer;box-shadow:0 1px 3px rgba(4,109,126,.14)}
+.filters input{font-weight:500;cursor:text}
+.filters select:hover{background-color:var(--teal-xl)}
+.filters select:focus,.filters input:focus{outline:none;border-color:var(--teal-2);box-shadow:0 0 0 3px rgba(4,109,126,.18)}
+.filters button{padding:11px 20px;border:2px solid var(--teal);background:#fff;color:var(--teal-d);border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;white-space:nowrap}
+.filters button:hover{background:var(--teal);color:#fff}
+.exportbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px;align-items:center}
+.exportbar .xlab{font-size:11.5px;color:var(--teal-2);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-right:4px}
+.exportbar button{background:var(--teal-2);color:#fff;border:0;border-radius:10px;padding:10px 16px;font-size:13px;font-weight:600;cursor:pointer}
+.exportbar button:hover{background:var(--teal-d)}
+.refbar{background:var(--teal-xl);border:1px solid var(--teal-l);border-left:4px solid var(--teal);border-radius:12px;padding:14px 18px;margin:0 0 16px;font-size:14px;color:var(--ink)}
+.refbar b{color:var(--teal-d);font-size:18px}
+.refbar .lbl{color:var(--teal-2);font-weight:700;text-transform:uppercase;font-size:11.5px;letter-spacing:.5px;margin-right:8px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:0 0 16px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.kpi .v{font-size:26px;font-weight:700;color:var(--teal);margin-top:2px}
+.kpi .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-top:4px}
+.kpi.g .v{color:var(--grn)}.kpi.r .v{color:var(--red)}.kpi.a .v{color:var(--amb)}.kpi.p .v{color:var(--blue)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:16px}
+.card h3{margin:-16px -18px 14px;padding:9px 18px;font-size:13px;font-weight:700;color:#fff;background:var(--teal-2);
+ border-radius:11px 11px 0 0;text-transform:uppercase;letter-spacing:.5px}
 .card.full{grid-column:1/-1}
-table{width:100%;border-collapse:collapse;font-size:12px}
-th,td{padding:7px 9px;text-align:left;border-bottom:1px solid #eef1f6}
-th{background:var(--lt);color:var(--navy);position:sticky;top:0;cursor:pointer;font-size:11px;text-transform:uppercase;letter-spacing:.3px}
-.tbox{max-height:460px;overflow:auto;border:1px solid #eef1f6;border-radius:8px}
-.badge{padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap}
-.b-im{background:#e3f4e6;color:var(--green)}.b-ni{background:#fde9da;color:var(--amber)}.b-ot{background:#eee;color:#666}
-td.num{text-align:right;font-variant-numeric:tabular-nums}
-.muted{color:var(--mut);font-size:12px;margin-top:10px}
-@media(max-width:880px){.grid{grid-template-columns:1fr}}
-@media(max-width:640px){header{padding:14px 14px}header h1{font-size:15px;line-height:1.25}header p{font-size:10.5px;margin-top:4px}.wrap{padding:10px 10px 40px}.filters{gap:8px;padding:10px;margin:10px 0}.filters label{width:100%;font-size:10px}.filters select,.filters input{min-width:0;width:100%;font-size:14px;padding:9px 10px}.filters button{width:100%;align-self:stretch;padding:11px;font-size:14px}.exportbar{gap:6px;margin:8px 0 2px}.exportbar .xlab{width:100%;margin:0 0 2px}.exportbar button{flex:1 1 46%;padding:11px 8px;font-size:12.5px}.refbar{padding:10px 12px;font-size:13px;margin-bottom:10px}.refbar b{font-size:16px}.refbar .lbl{font-size:11px}.kpis{grid-template-columns:repeat(2,1fr);gap:8px;margin:4px 0 12px}.kpi{padding:10px 12px;border-radius:10px}.kpi .v{font-size:17px}.kpi .l{font-size:9.5px;margin-top:2px}.grid{gap:10px}.card{padding:10px;border-radius:10px}.card h3{font-size:12px;margin-bottom:8px}table{font-size:10px}th,td{padding:4px 6px}th{font-size:9px;letter-spacing:.2px}.tbox{max-height:380px}.badge{font-size:9px;padding:1px 6px}.muted{font-size:10.5px}}
-
-.exportbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;align-items:center}.exportbar .xlab{font-size:12px;color:var(--mut);margin-right:2px}.exportbar button{background:#046D7E;color:#fff;border:0;border-radius:8px;padding:8px 14px;font-size:12px;cursor:pointer}.exportbar button:hover{background:#03515E}
-canvas{max-height:300px}canvas.thin{max-height:150px}.covbox{position:relative;width:100%}#cCovA,#cCovB{max-height:none}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:7px 9px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--teal-vl);color:var(--teal-d);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.3px;position:sticky;top:0;z-index:2;cursor:pointer}
+tbody tr:hover{background:var(--teal-xl)}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbox{max-height:480px;overflow:auto;border:1px solid var(--line);border-radius:10px}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600;white-space:nowrap}
+.b-im{background:var(--grn-vl);color:#4d7a10}.b-ni{background:var(--red-l);color:var(--red)}.b-ot{background:var(--blue-vl);color:#1c6b8f}
+.muted{color:var(--muted);font-size:12px;line-height:1.55;margin-top:10px}
+canvas{max-height:300px}canvas.thin{max-height:150px}
+.covbox{position:relative;width:100%}#cCovA,#cCovB{max-height:none}
+@media(max-width:1100px){.grid{grid-template-columns:1fr}}
+@media(max-width:640px){
+ header{padding:14px 16px;border-radius:12px}header h1{font-size:16px;line-height:1.25}header p{font-size:11px}
+ .wrap{padding:10px 10px 40px}
+ .filters{grid-template-columns:1fr;gap:10px;padding:12px}
+ .filters select,.filters input,.filters button{font-size:15px;padding:11px 12px;width:100%}
+ .exportbar{gap:6px}.exportbar .xlab{width:100%;margin:0 0 2px}.exportbar button{flex:1 1 46%;padding:11px 8px;font-size:12.5px}
+ .refbar{padding:11px 13px;font-size:13px}.refbar b{font-size:16px}
+ .kpis{grid-template-columns:repeat(2,1fr);gap:8px}
+ .kpi{padding:11px 12px}.kpi .v{font-size:18px}.kpi .l{font-size:9.5px}
+ .grid{gap:10px}.card{padding:12px 13px}.card h3{margin:-12px -13px 10px;padding:8px 13px;font-size:11.5px}
+ table{font-size:11px}th,td{padding:5px 6px}th{font-size:9.5px;letter-spacing:.2px}
+ .tbox{max-height:400px}.badge{font-size:9.5px;padding:1px 7px}.muted{font-size:11px}
+}
 </style></head><body>
-<header><h1>Свод договоров на содержание контейнерных площадок (ТКО)</h1>
-<p>Реестр региональных операторов по обращению с ТКO · 101 файлов · данные на июль 2026 · суммы и статусы актуализированы</p></header>
 <div class="wrap">
+<header><h1>Свод договоров на содержание контейнерных площадок (ТКО)</h1>
+<p>Реестр региональных операторов по обращению с ТКО &nbsp;·&nbsp; ППК «Российский экологический оператор» &nbsp;·&nbsp; 101 файл &nbsp;·&nbsp; данные на август 2026</p></header>
 <div class="filters">
 <label>Субъект РФ<select id="fReg"></select></label>
 <label>МО / округ / поселение<select id="fMO"></select></label>
@@ -230,9 +264,9 @@ function kpis(D,Dcov){const im=D.filter(d=>d.st==='Имеется').length;
  const k=[['',cd.total,'Количество МО'],
   ['g',NF.format(cd.dog),'МО: Договор'],
   ['p',NF.format(cd.mzro),'МО: Мунзадание+регоператор'],
-  ['a',NF.format(cd.net),'МО: Нет'],
+  ['r',NF.format(cd.net),'МО: Нет'],
   ['',cov+'%','Итоговое покрытие (Договор + Мунзадание+регоператор)'],
-  ['r',money(sum),'Сумма договоров, ₽'],['',im,'Количество договоров, шт.']];
+  ['',money(sum),'Сумма договоров, ₽'],['',im,'Количество договоров, шт.']];
  el('kpis').innerHTML=k.map(x=>`<div class="kpi ${x[0]}"><div class="v">${typeof x[1]==='number'?NF.format(x[1]):x[1]}</div><div class="l">${x[2]}</div></div>`).join('')}
 function grp(D,key,val){const m={};D.forEach(d=>{m[d[key]]=(m[d[key]]||0)+(val?d[val]:1)});return m}
 function mk(id,type,labels,datasets,opts={}){if(charts[id])charts[id].destroy();
@@ -251,9 +285,9 @@ function render(){const D=flt();kpis(D,fltNoCat());el('cnt').textContent=NF.form
    const labels=rr.map(x=>x.reg+' — '+x.pct+'%');
    const box=el(boxId); if(box) box.style.height=(rr.length*15+34)+'px';
    mk(id,'bar',labels,[
-     {label:'МО с договором',data:rr.map(x=>x.dog),backgroundColor:'#2e7d32'},
-     {label:'МО мунзадание/регоп.',data:rr.map(x=>x.mun),backgroundColor:'#2e5496'},
-     {label:'МО без покрытия',data:rr.map(x=>x.net),backgroundColor:'#e67e22'}],
+     {label:'МО с договором',data:rr.map(x=>x.dog),backgroundColor:'#6B9F25'},
+     {label:'МО мунзадание/регоп.',data:rr.map(x=>x.mun),backgroundColor:'#3494BA'},
+     {label:'МО без покрытия',data:rr.map(x=>x.net),backgroundColor:'#B23A2F'}],
      {indexAxis:'y',maintainAspectRatio:false,
       plugins:{legend:{display:true,labels:{font:{size:11}}},
         datalabels:{display:true,color:'#fff',font:{size:10,weight:'500'},formatter:(v)=>v>0?v:''}},
@@ -274,7 +308,7 @@ function render(){const D=flt();kpis(D,fltNoCat());el('cnt').textContent=NF.form
    gTitle='Топ-12 субъектов по сумме договоров, тыс. ₽';
  }
  el('hRegSum').textContent=gTitle;
- mk('cRegSum','bar',gT.map(x=>String(x[0]).length>34?String(x[0]).slice(0,34)+'…':x[0]),[{label:'Сумма, тыс. ₽',data:gT.map(x=>Math.round(x[1]/1000)),backgroundColor:'#2e5496'}],
+ mk('cRegSum','bar',gT.map(x=>String(x[0]).length>34?String(x[0]).slice(0,34)+'…':x[0]),[{label:'Сумма, тыс. ₽',data:gT.map(x=>Math.round(x[1]/1000)),backgroundColor:'#3494BA'}],
    {indexAxis:'y',plugins:{legend:{display:false}},scales:{y:{ticks:{font:{size:10}}}}});
  const ex={};D.filter(d=>d.st==='Имеется'&&d.exec).forEach(d=>ex[d.exec]=(ex[d.exec]||0)+d.sum);
  const exT=Object.entries(ex).sort((a,b)=>b[1]-a[1]).slice(0,12);
@@ -282,7 +316,7 @@ function render(){const D=flt();kpis(D,fltNoCat());el('cnt').textContent=NF.form
    {indexAxis:'y',plugins:{legend:{display:false}},scales:{y:{ticks:{font:{size:9}}}}});
  // укрупнённые виды работ (договорные категории + мунзадание/регоператор = вся сумма)
  const CATS=['Содержание контейнерных площадок','Вывоз несанкционированных свалок','Смешанный контракт','Мунзадание / регоператор'];
- const CCOL=['#2e5496','#c0392b','#e67e22','#7f8c8d'];
+ const CCOL=['#046D7E','#B23A2F','#9F6715','#6f7280'];
  const Dim=D;
  const ccnt=CATS.map(c=>Dim.filter(d=>d.cat===c).length);
  const csum=CATS.map(c=>Dim.filter(d=>d.cat===c).reduce((a,d)=>a+d.sum,0));
@@ -312,7 +346,7 @@ document.querySelectorAll('#tbl th').forEach(th=>th.onclick=()=>{const k=th.data
 render();
 
 /* ====== ВЫГРУЗКА: СЛАЙД + ГОВОРИЛКА (v2, макет по образцу) ====== */
-const XC={teal:'046D7E',teal2:'007080',light:'A9CFD8',ink:'373545',yellow:'FFF200'};
+const XC={teal:'046D7E',teal2:'007080',light:'A9CFD8',ink:'373545',yellow:'FFF200',red:'B23A2F'};
 const CONTRACT_CATS=['Содержание контейнерных площадок','Вывоз несанкционированных свалок','Смешанный контракт'];
 const CATSHOW={'Смешанный контракт':'Смешанные (комплексные)','Вывоз несанкционированных свалок':'Вывоз несанкционированных отходов','Содержание контейнерных площадок':'Содержание контейнерных площадок'};
 const CATPH={'Содержание контейнерных площадок':'На содержание контейнерных площадок',
@@ -433,11 +467,11 @@ function downloadPptx(){const reg=selRegion();if(!reg)return needRegion();
  s.addText(reg,{x:0.5,y:1.72,w:2.2,h:0.34,align:'right',fontSize:10,color:XC.ink,fontFace:FONT});
  const barX=2.8,barW=9.9,wCov=A.total?(A.dog+A.mzro)/A.total*barW:0;
  if(wCov>0.01)s.addShape(p.ShapeType.rect,{x:barX,y:1.72,w:wCov,h:0.34,fill:{color:'0E7B8C'}});
- if(barW-wCov>0.01)s.addShape(p.ShapeType.rect,{x:barX+wCov,y:1.72,w:barW-wCov,h:0.34,fill:{color:XC.light}});
+ if(barW-wCov>0.01)s.addShape(p.ShapeType.rect,{x:barX+wCov,y:1.72,w:barW-wCov,h:0.34,fill:{color:'E3B7B2'}});
  if(wCov>0.6)s.addText((A.dog+A.mzro)+' ('+covPct+'%)',{x:barX,y:1.72,w:wCov,h:0.34,align:'center',color:'FFFFFF',bold:true,fontSize:9,fontFace:FONT});
  if(barW-wCov>0.6)s.addText(A.net+' ('+netPct+'%)',{x:barX+wCov,y:1.72,w:barW-wCov,h:0.34,align:'center',color:'37545D',bold:true,fontSize:9,fontFace:FONT});
  s.addText([{text:'■ ',options:{color:'0E7B8C'}},{text:'МО с договором, мунзаданием    ',options:{color:XC.ink}},
-  {text:'■ ',options:{color:XC.light}},{text:'МО без договора',options:{color:XC.ink}}],
+  {text:'■ ',options:{color:'E3B7B2'}},{text:'МО без договора',options:{color:XC.ink}}],
   {x:0.38,y:2.08,w:12.56,h:0.24,align:'center',fontSize:8.5,fontFace:FONT});
  // строка итогов
  s.addShape(p.ShapeType.line,{x:0.38,y:2.34,w:12.56,h:0,line:{color:XC.teal,width:1.2}});
@@ -476,4 +510,4 @@ function downloadPptx(){const reg=selRegion();if(!reg)return needRegion();
  p.writeFile({fileName:'Слайд_'+reg.replace(/[^\wа-яА-ЯёЁ-]+/g,'_')+'.pptx'})}
 
 </script></body></html>
-<!-- версия сайта: 2026-08-12 14:51 -->
+<!-- версия сайта: 2026-08-17 13:23 -->
